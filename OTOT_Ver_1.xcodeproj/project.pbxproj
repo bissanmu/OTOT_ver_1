@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		84888FDA1F7BEB5E00F76652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84888FD91F7BEB5E00F76652 /* AppDelegate.swift */; };
-		84888FDC1F7BEB5E00F76652 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84888FDB1F7BEB5E00F76652 /* ViewController.swift */; };
 		84888FDF1F7BEB5E00F76652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84888FDD1F7BEB5E00F76652 /* Main.storyboard */; };
 		84888FE11F7BEB5E00F76652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84888FE01F7BEB5E00F76652 /* Assets.xcassets */; };
 		84888FE41F7BEB5E00F76652 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84888FE21F7BEB5E00F76652 /* LaunchScreen.storyboard */; };
+		84888FEE1F7D160B00F76652 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84888FED1F7D160B00F76652 /* TableViewController.swift */; };
+		84888FF01F7D163800F76652 /* PreviewMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84888FEF1F7D163800F76652 /* PreviewMessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		84888FD61F7BEB5E00F76652 /* OTOT_Ver_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTOT_Ver_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84888FD91F7BEB5E00F76652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84888FDB1F7BEB5E00F76652 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84888FDE1F7BEB5E00F76652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84888FE01F7BEB5E00F76652 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84888FE31F7BEB5E00F76652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84888FE51F7BEB5E00F76652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84888FED1F7D160B00F76652 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		84888FEF1F7D163800F76652 /* PreviewMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				84888FD91F7BEB5E00F76652 /* AppDelegate.swift */,
-				84888FDB1F7BEB5E00F76652 /* ViewController.swift */,
 				84888FDD1F7BEB5E00F76652 /* Main.storyboard */,
 				84888FE01F7BEB5E00F76652 /* Assets.xcassets */,
 				84888FE21F7BEB5E00F76652 /* LaunchScreen.storyboard */,
 				84888FE51F7BEB5E00F76652 /* Info.plist */,
+				84888FED1F7D160B00F76652 /* TableViewController.swift */,
+				84888FEF1F7D163800F76652 /* PreviewMessageCell.swift */,
 			);
 			path = OTOT_Ver_1;
 			sourceTree = "<group>";
@@ -135,7 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84888FDC1F7BEB5E00F76652 /* ViewController.swift in Sources */,
+				84888FEE1F7D160B00F76652 /* TableViewController.swift in Sources */,
+				84888FF01F7D163800F76652 /* PreviewMessageCell.swift in Sources */,
 				84888FDA1F7BEB5E00F76652 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,11 +275,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EDRP4VF6QH;
 				INFOPLIST_FILE = OTOT_Ver_1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "seonwoo.OTOT-Ver-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -285,11 +290,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EDRP4VF6QH;
 				INFOPLIST_FILE = OTOT_Ver_1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "seonwoo.OTOT-Ver-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

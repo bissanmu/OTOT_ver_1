@@ -27,7 +27,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundView = UIImageView(image : UIImage(named : "bg.png"))
-        
+        self.title = "소식 보기"
         open.target = revealViewController()
         open.action = Selector("revealToggle:")
         
@@ -46,13 +46,13 @@ class TableViewController: UITableViewController {
         }
         tableView.reloadData()
         
-        
         searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         searchController.searchBar.sizeToFit()
         searchController.searchBar.placeholder = "Search here ..."
         tableView.tableHeaderView = searchController.searchBar
+        //tableView.tableFooterView = searchController.searchBar
         
     }
     
@@ -95,12 +95,13 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreviewMessageCell
-        
+        var urlImage:String = ""
         if searchController.isActive && searchController.searchBar.text != "" {
             cell.previewDate.text = filterMessages[indexPath.row].insDate
             cell.location.text = filterMessages[indexPath.row].location
             cell.previewTitle.text = filterMessages[indexPath.row].title
             cell.previewContent.text = filterMessages[indexPath.row].previewMessage
+            urlImage = filterMessages[indexPath.row].image
             cell.messageBoxImage.image =  UIImage(named : "msg.png")
             cell.titleImage.layer.cornerRadius = cell.titleImage.frame.size.width/2
             cell.titleImage.clipsToBounds = true
@@ -109,13 +110,14 @@ class TableViewController: UITableViewController {
             cell.location.text = messageArray[indexPath.row].location
             cell.previewTitle.text = messageArray[indexPath.row].title
             cell.previewContent.text = messageArray[indexPath.row].previewMessage
+            urlImage = messageArray[indexPath.row].image
             cell.messageBoxImage.image =  UIImage(named : "msg.png")
             cell.titleImage.layer.cornerRadius = cell.titleImage.frame.size.width/2
             cell.titleImage.clipsToBounds = true
         }
         
         //cell.titleImage.image = UIImage(named : messageArray[indexPath.row].image)
-        let URL_IMAGE = URL(string : messageArray[indexPath.row].image)
+        let URL_IMAGE = URL(string : urlImage)
         let session = URLSession(configuration : .default)
         let getImageFromUrl = session.dataTask(with: URL_IMAGE!) { (data, response, error) in
             //if there is any error
@@ -130,7 +132,9 @@ class TableViewController: UITableViewController {
                         //getting the image
                         let image = UIImage(data: imageData)
                         //displaying the image
+                        DispatchQueue.main.async(execute: {
                         cell.titleImage.image = image
+                            })
                     } else {
                         print("Image file is currupted")
                     }
@@ -177,8 +181,55 @@ class TableViewController: UITableViewController {
         })
     }
     
+    // MARK: - Segues
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showDetail" {
+//            if let indexPath = tableView.indexPathForSelectedRow {
+//                let candy = candies[indexPath.row]
+//                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+//                controller.detailCandy = candy
+//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//                controller.navigationItem.leftItemsSupplementBackButton = true
+//            }
+//        }
+//    }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        var insDate:String = ""
+        var location:String = ""
+        var previewTitle:String = ""
+        var previewContent:String = ""
+        var url_image:String = ""
+        
+        if segue.identifier == "showDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                if searchController.isActive && searchController.searchBar.text != "" {
+                     insDate = filterMessages[indexPath.row].insDate
+                     location = filterMessages[indexPath.row].location
+                     previewTitle = filterMessages[indexPath.row].title
+                     previewContent = filterMessages[indexPath.row].previewMessage
+                     url_image = filterMessages[indexPath.row].image
+                } else {
+                     insDate = messageArray[indexPath.row].insDate
+                     location = messageArray[indexPath.row].location
+                     previewTitle = messageArray[indexPath.row].title
+                     previewContent = messageArray[indexPath.row].previewMessage
+                     url_image = messageArray[indexPath.row].image
+                }
+                
+                if let controller = segue.destination as? DetailViewController {
+                   controller.pmessageTitle = previewTitle
+                   controller.pinsDate = insDate
+                   controller.plocation = location
+                   controller.ptitleImage = url_image
+                   controller.pmessageContent = previewContent
+                    
+                }
+                
+            }
+        }
+    }
 }
 
 class Message {

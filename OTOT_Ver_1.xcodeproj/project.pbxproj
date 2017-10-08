@@ -18,6 +18,7 @@
 		8449BA8C1F87AC4F008FC642 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BA8B1F87AC4F008FC642 /* MenuController.swift */; };
 		8449BA8E1F87B29F008FC642 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BA8D1F87B29F008FC642 /* MenuTableViewController.swift */; };
 		8449BA901F87CC23008FC642 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8449BA8F1F87CC23008FC642 /* GoogleService-Info.plist */; };
+		845CBF011F8A064A003D745B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CBF001F8A064A003D745B /* DetailViewController.swift */; };
 		84888FDA1F7BEB5E00F76652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84888FD91F7BEB5E00F76652 /* AppDelegate.swift */; };
 		84888FDF1F7BEB5E00F76652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84888FDD1F7BEB5E00F76652 /* Main.storyboard */; };
 		84888FE11F7BEB5E00F76652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84888FE01F7BEB5E00F76652 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		8449BA8B1F87AC4F008FC642 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		8449BA8D1F87B29F008FC642 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		8449BA8F1F87CC23008FC642 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		845CBF001F8A064A003D745B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		84888FD61F7BEB5E00F76652 /* OTOT_Ver_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTOT_Ver_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84888FD91F7BEB5E00F76652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84888FDE1F7BEB5E00F76652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				84416A4A1F8903060016E9B8 /* Item.swift */,
 				84416A4C1F890BFB0016E9B8 /* AddItemViewController.swift */,
 				84416A501F89101F0016E9B8 /* IconCell.swift */,
+				845CBF001F8A064A003D745B /* DetailViewController.swift */,
 			);
 			path = OTOT_Ver_1;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845CBF011F8A064A003D745B /* DetailViewController.swift in Sources */,
 				84416A4B1F8903060016E9B8 /* Item.swift in Sources */,
 				84416A471F88FF490016E9B8 /* ItemCell.swift in Sources */,
 				84416A511F89101F0016E9B8 /* IconCell.swift in Sources */,

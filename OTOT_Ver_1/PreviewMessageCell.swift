@@ -11,9 +11,11 @@ import UIKit
 class PreviewMessageCell: UITableViewCell {
     
     @IBOutlet weak var messageBoxImage: UIImageView!
-    @IBOutlet weak var writer: UILabel!
+    @IBOutlet weak var location: UILabel!
     @IBOutlet weak var previewTitle: UILabel!
-    @IBOutlet weak var previewContent: UILabel!
+    @IBOutlet weak var previewContent: UITextView!
+    @IBOutlet weak var previewDate: UILabel!
+    @IBOutlet weak var titleImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

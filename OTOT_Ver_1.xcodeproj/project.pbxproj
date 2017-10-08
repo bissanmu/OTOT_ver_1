@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373CEFE21EB219FFF167F448 /* Pods_OTOT_Ver_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCC59A2B467E050F9AAE4CB /* Pods_OTOT_Ver_1.framework */; };
+		84416A451F88FE1F0016E9B8 /* ListBeaconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84416A441F88FE1F0016E9B8 /* ListBeaconsViewController.swift */; };
+		84416A471F88FF490016E9B8 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84416A461F88FF490016E9B8 /* ItemCell.swift */; };
+		84416A491F8902FC0016E9B8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84416A481F8902FC0016E9B8 /* Icons.swift */; };
+		84416A4B1F8903060016E9B8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84416A4A1F8903060016E9B8 /* Item.swift */; };
+		84416A4D1F890BFB0016E9B8 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84416A4C1F890BFB0016E9B8 /* AddItemViewController.swift */; };
+		84416A511F89101F0016E9B8 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84416A501F89101F0016E9B8 /* IconCell.swift */; };
+		8449BA8A1F87AB48008FC642 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449BA891F87AB47008FC642 /* SWRevealViewController.m */; };
+		8449BA8C1F87AC4F008FC642 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BA8B1F87AC4F008FC642 /* MenuController.swift */; };
+		8449BA8E1F87B29F008FC642 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449BA8D1F87B29F008FC642 /* MenuTableViewController.swift */; };
+		8449BA901F87CC23008FC642 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8449BA8F1F87CC23008FC642 /* GoogleService-Info.plist */; };
 		84888FDA1F7BEB5E00F76652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84888FD91F7BEB5E00F76652 /* AppDelegate.swift */; };
 		84888FDF1F7BEB5E00F76652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84888FDD1F7BEB5E00F76652 /* Main.storyboard */; };
 		84888FE11F7BEB5E00F76652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84888FE01F7BEB5E00F76652 /* Assets.xcassets */; };
@@ -16,6 +27,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02B3CDBD4F8E9B17CE57E16C /* Pods-OTOT_Ver_1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTOT_Ver_1.release.xcconfig"; path = "Pods/Target Support Files/Pods-OTOT_Ver_1/Pods-OTOT_Ver_1.release.xcconfig"; sourceTree = "<group>"; };
+		2C1CCE934443DCEF61A1263D /* Pods-OTOT_Ver_1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTOT_Ver_1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OTOT_Ver_1/Pods-OTOT_Ver_1.debug.xcconfig"; sourceTree = "<group>"; };
+		7BCC59A2B467E050F9AAE4CB /* Pods_OTOT_Ver_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTOT_Ver_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84416A441F88FE1F0016E9B8 /* ListBeaconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBeaconsViewController.swift; sourceTree = "<group>"; };
+		84416A461F88FF490016E9B8 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		84416A481F8902FC0016E9B8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		84416A4A1F8903060016E9B8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		84416A4C1F890BFB0016E9B8 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		84416A501F89101F0016E9B8 /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
+		8449BA871F87AB47008FC642 /* OTOT_Ver_1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OTOT_Ver_1-Bridging-Header.h"; sourceTree = "<group>"; };
+		8449BA881F87AB47008FC642 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
+		8449BA891F87AB47008FC642 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
+		8449BA8B1F87AC4F008FC642 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		8449BA8D1F87B29F008FC642 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		8449BA8F1F87CC23008FC642 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84888FD61F7BEB5E00F76652 /* OTOT_Ver_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTOT_Ver_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84888FD91F7BEB5E00F76652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84888FDE1F7BEB5E00F76652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				373CEFE21EB219FFF167F448 /* Pods_OTOT_Ver_1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +69,8 @@
 			children = (
 				84888FD81F7BEB5E00F76652 /* OTOT_Ver_1 */,
 				84888FD71F7BEB5E00F76652 /* Products */,
+				CBF9654A127644AD73876CA6 /* Pods */,
+				E7CA71EEA6118AF1B464DF4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +85,44 @@
 		84888FD81F7BEB5E00F76652 /* OTOT_Ver_1 */ = {
 			isa = PBXGroup;
 			children = (
+				8449BA881F87AB47008FC642 /* SWRevealViewController.h */,
+				8449BA891F87AB47008FC642 /* SWRevealViewController.m */,
 				84888FD91F7BEB5E00F76652 /* AppDelegate.swift */,
 				84888FDD1F7BEB5E00F76652 /* Main.storyboard */,
 				84888FE01F7BEB5E00F76652 /* Assets.xcassets */,
 				84888FE21F7BEB5E00F76652 /* LaunchScreen.storyboard */,
 				84888FE51F7BEB5E00F76652 /* Info.plist */,
+				8449BA8F1F87CC23008FC642 /* GoogleService-Info.plist */,
 				84888FED1F7D160B00F76652 /* TableViewController.swift */,
 				84888FEF1F7D163800F76652 /* PreviewMessageCell.swift */,
+				8449BA871F87AB47008FC642 /* OTOT_Ver_1-Bridging-Header.h */,
+				8449BA8B1F87AC4F008FC642 /* MenuController.swift */,
+				8449BA8D1F87B29F008FC642 /* MenuTableViewController.swift */,
+				84416A441F88FE1F0016E9B8 /* ListBeaconsViewController.swift */,
+				84416A461F88FF490016E9B8 /* ItemCell.swift */,
+				84416A481F8902FC0016E9B8 /* Icons.swift */,
+				84416A4A1F8903060016E9B8 /* Item.swift */,
+				84416A4C1F890BFB0016E9B8 /* AddItemViewController.swift */,
+				84416A501F89101F0016E9B8 /* IconCell.swift */,
 			);
 			path = OTOT_Ver_1;
+			sourceTree = "<group>";
+		};
+		CBF9654A127644AD73876CA6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C1CCE934443DCEF61A1263D /* Pods-OTOT_Ver_1.debug.xcconfig */,
+				02B3CDBD4F8E9B17CE57E16C /* Pods-OTOT_Ver_1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E7CA71EEA6118AF1B464DF4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BCC59A2B467E050F9AAE4CB /* Pods_OTOT_Ver_1.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +132,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84888FE81F7BEB5E00F76652 /* Build configuration list for PBXNativeTarget "OTOT_Ver_1" */;
 			buildPhases = (
+				A0741E22DE26652BB8660B3B /* [CP] Check Pods Manifest.lock */,
 				84888FD21F7BEB5E00F76652 /* Sources */,
 				84888FD31F7BEB5E00F76652 /* Frameworks */,
 				84888FD41F7BEB5E00F76652 /* Resources */,
+				F2317A69D19B8EAE113709F5 /* [CP] Embed Pods Frameworks */,
+				B78AD1874A45DEC9FACC112F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -99,6 +160,7 @@
 				TargetAttributes = {
 					84888FD51F7BEB5E00F76652 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -126,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84888FE41F7BEB5E00F76652 /* LaunchScreen.storyboard in Resources */,
+				8449BA901F87CC23008FC642 /* GoogleService-Info.plist in Resources */,
 				84888FE11F7BEB5E00F76652 /* Assets.xcassets in Resources */,
 				84888FDF1F7BEB5E00F76652 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +196,83 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A0741E22DE26652BB8660B3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OTOT_Ver_1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B78AD1874A45DEC9FACC112F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OTOT_Ver_1/Pods-OTOT_Ver_1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2317A69D19B8EAE113709F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OTOT_Ver_1/Pods-OTOT_Ver_1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OTOT_Ver_1/Pods-OTOT_Ver_1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84888FD21F7BEB5E00F76652 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84416A4B1F8903060016E9B8 /* Item.swift in Sources */,
+				84416A471F88FF490016E9B8 /* ItemCell.swift in Sources */,
+				84416A511F89101F0016E9B8 /* IconCell.swift in Sources */,
+				84416A451F88FE1F0016E9B8 /* ListBeaconsViewController.swift in Sources */,
+				8449BA8C1F87AC4F008FC642 /* MenuController.swift in Sources */,
 				84888FEE1F7D160B00F76652 /* TableViewController.swift in Sources */,
+				8449BA8E1F87B29F008FC642 /* MenuTableViewController.swift in Sources */,
+				84416A491F8902FC0016E9B8 /* Icons.swift in Sources */,
 				84888FF01F7D163800F76652 /* PreviewMessageCell.swift in Sources */,
 				84888FDA1F7BEB5E00F76652 /* AppDelegate.swift in Sources */,
+				8449BA8A1F87AB48008FC642 /* SWRevealViewController.m in Sources */,
+				84416A4D1F890BFB0016E9B8 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +328,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -251,6 +384,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -271,14 +405,18 @@
 		};
 		84888FE91F7BEB5E00F76652 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C1CCE934443DCEF61A1263D /* Pods-OTOT_Ver_1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = EDRP4VF6QH;
 				INFOPLIST_FILE = OTOT_Ver_1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "seonwoo.OTOT-Ver-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OTOT_Ver_1/OTOT_Ver_1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -286,14 +424,17 @@
 		};
 		84888FEA1F7BEB5E00F76652 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02B3CDBD4F8E9B17CE57E16C /* Pods-OTOT_Ver_1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = EDRP4VF6QH;
 				INFOPLIST_FILE = OTOT_Ver_1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "seonwoo.OTOT-Ver-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OTOT_Ver_1/OTOT_Ver_1-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -318,6 +459,7 @@
 				84888FEA1F7BEB5E00F76652 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

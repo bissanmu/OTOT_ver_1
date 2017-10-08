@@ -7,35 +7,69 @@
 //
 
 import UIKit
+import Firebase
 
 class TableViewController: UITableViewController {
     
+    @IBOutlet weak var open: UIBarButtonItem!
+    
     var messageArray : [Message] = [Message]()
+    var filterMessages : [Message] = [Message]()
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All"){
+        filterMessages = messageArray.filter{ message in
+            return message.content.contains(searchText)
+        }
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundView = UIImageView(image : UIImage(named : "bg.png"))
-        var message = Message()
         
-        message.writer = "안선우"
-        message.title = "테스트1입니다."
-        message.previewMessage = "언제 다하냐 .."
-        messageArray.append(message)
-        message = Message()
-        message.writer = "최대은"
-        message.title = "테스트2입니다."
-        message.previewMessage = "서버 좀 해주세여.."
-        messageArray.append(message)
+        open.target = revealViewController()
+        open.action = Selector("revealToggle:")
         
-       self.navigationItem.titleView = UIImageView(image: UIImage(named : "ico-sidebar.png"))
-        navigationItem.titleView?.sizeToFit()
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        retrievemessages()
+        refreshControl = UIRefreshControl()
+        refreshControl?.tintColor = UIColor.orange
+        refreshControl?.backgroundColor = UIColor.darkGray
+        refreshControl?.attributedTitle = NSAttributedString(string: "Fetching More Data...", attributes: [NSAttributedStringKey.foregroundColor : refreshControl?.tintColor])
+        refreshControl?.addTarget(self, action: #selector(TableViewController.refreshData), for: UIControlEvents.valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl!)
+        }
+        tableView.reloadData()
         
         
+        searchController.searchResultsUpdater = self
+        self.searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.placeholder = "Search here ..."
+        tableView.tableHeaderView = searchController.searchBar
         
     }
     
-    func fbButtonPressed() {
-        print("Share to fb")
+    @objc func refreshData(){
+        tableView.reloadData()
+        print("reload")
+        refreshControl?.endRefreshing()
+    }
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        
+        if offset < -150 {
+            refreshControl?.attributedTitle = NSAttributedString(string: "불러오기가 완료되었습니다. 이제 놓으셔도 됩니다 :)", attributes: [NSAttributedStringKey.foregroundColor : refreshControl?.tintColor])
+        } else {
+            refreshControl?.attributedTitle = NSAttributedString(string: "Fetcing More Data...", attributes: [NSAttributedStringKey.foregroundColor : refreshControl?.tintColor])
+        }
+        refreshControl?.backgroundColor = UIColor.darkGray
     }
     @objc
     override func didReceiveMemoryWarning() {
@@ -52,99 +86,98 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filterMessages.count
+        }
         return messageArray.count
     }
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let button = UIButton(type: .system)
-//        button.setImage(UIImage(named : "ico-sidebar.png"), for: .normal)
-//        button.setBackgroundImage(UIImage(named : "ico_sidebar.png"), for: .normal)
-//        button.setTitle("Categories", for: .normal)
-//        button.addTarget(self, action: #selector(showCategories), for: .touchUpInside)
-//        button.contentMode = .scaleAspectFit
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
-        
-        let vw = UIView()
-        vw.backgroundColor = UIColor.orange
-        let image = UIImageView(image : UIImage(named : "ico-sidebar.png"))
-        image.frame = CGRect(x:5, y:5, width :35, height :35)
-            
-        view.addSubview(image)
-        
-        return vw
-        
-    }
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
-    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreviewMessageCell
         
+        if searchController.isActive && searchController.searchBar.text != "" {
+            cell.previewDate.text = filterMessages[indexPath.row].insDate
+            cell.location.text = filterMessages[indexPath.row].location
+            cell.previewTitle.text = filterMessages[indexPath.row].title
+            cell.previewContent.text = filterMessages[indexPath.row].previewMessage
+            cell.messageBoxImage.image =  UIImage(named : "msg.png")
+            cell.titleImage.layer.cornerRadius = cell.titleImage.frame.size.width/2
+            cell.titleImage.clipsToBounds = true
+        } else {
+            cell.previewDate.text = messageArray[indexPath.row].insDate
+            cell.location.text = messageArray[indexPath.row].location
+            cell.previewTitle.text = messageArray[indexPath.row].title
+            cell.previewContent.text = messageArray[indexPath.row].previewMessage
+            cell.messageBoxImage.image =  UIImage(named : "msg.png")
+            cell.titleImage.layer.cornerRadius = cell.titleImage.frame.size.width/2
+            cell.titleImage.clipsToBounds = true
+        }
         
-        
-        
-        cell.writer.text = messageArray[indexPath.row].writer
-        cell.previewTitle.text = messageArray[indexPath.row].title
-        cell.previewContent.text = messageArray[indexPath.row].previewMessage
-        cell.messageBoxImage.image =  UIImage(named : "msg.png")
-        //cell.writer.text = "안선우"
-        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(_:)))
-//        cell.addGestureRecognizer(tapGesture)
-        // Configure the cell...
+        //cell.titleImage.image = UIImage(named : messageArray[indexPath.row].image)
+        let URL_IMAGE = URL(string : messageArray[indexPath.row].image)
+        let session = URLSession(configuration : .default)
+        let getImageFromUrl = session.dataTask(with: URL_IMAGE!) { (data, response, error) in
+            //if there is any error
+            if let e = error {
+                //displaying the message
+                print("Error Occurred: \(e)")
+            } else {
+                //in case of now error, checking wheather the response is nil or not
+                if (response as? HTTPURLResponse) != nil {
+                    //checking if the response contains an image
+                    if let imageData = data {
+                        //getting the image
+                        let image = UIImage(data: imageData)
+                        //displaying the image
+                        cell.titleImage.image = image
+                    } else {
+                        print("Image file is currupted")
+                    }
+                } else {
+                    print("No response from server")
+                }
+            }
+        }
+        //starting the download task
+        getImageFromUrl.resume()
 
         return cell
     }
     
-    @objc func imageTapped(_ sender: UITapGestureRecognizer)
-    {
-        let myCell = sender.view as! PreviewMessageCell
-        myCell.messageBoxImage.image = UIImage(named: "imageTapped.jpg")
+    func retrievemessages(){
+        
+        let messageDB = FIRDatabase.database().reference().child("Messages")
+        
+        messageDB.observe(.childAdded, with : {(snapshot) in
+            let snapshotValue = snapshot.value as! Dictionary<String, String>
+            
+            let title = snapshotValue["title"]!
+            let content = snapshotValue["content"]!
+            let writer = snapshotValue["writer"]!
+            let email = snapshotValue["email"]!
+            let image = snapshotValue["image"]!
+            let insDate = snapshotValue["insDate"]!
+            let location = snapshotValue["location"]!
+            
+            let message = Message()
+            
+            message.title = title
+            message.content = content
+            message.email = email
+            message.image = image
+            message.writer = writer
+            message.insDate = insDate
+            message.location = location
+            message.previewMessage = content
+            
+            self.messageArray.append(message)
+            self.tableView.reloadData()
+            
+        })
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }
 
@@ -152,4 +185,15 @@ class Message {
     var writer:String = ""
     var title:String = ""
     var previewMessage:String = ""
+    var content:String = ""
+    var email:String = ""
+    var image:String = ""
+    var insDate:String = ""
+    var location:String = ""
+}
+
+extension TableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
 }

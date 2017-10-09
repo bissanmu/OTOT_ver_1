@@ -8,16 +8,44 @@
 
 import UIKit
 import Firebase
+import UserNotifications
+import CoreLocation
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    //let locationManager = CLLocationManager()
+    var locationManager: CLLocationManager?
+    var lastProximity: CLProximity?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FIRApp.configure()
+        
+        //beacon setting
+        let uuidString = "24DDF411-8CF1-440C-87CD-E368DAF9C93E"
+        let beaconIdentifier = "iBeaconModules.us"
+        let beaconUUID:UUID = UUID(uuidString: uuidString)!
+        let beaconRegion:CLBeaconRegion = CLBeaconRegion(proximityUUID: beaconUUID,
+                                                         identifier: beaconIdentifier)
+        
+        locationManager = CLLocationManager()
+        
+        //if(locationManager!.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization))) {
+            locationManager!.requestAlwaysAuthorization()
+        //}
+        
+        locationManager!.delegate = self
+        //locationManager!.pausesLocationUpdatesAutomatically = false
+        
+        //locationManager!.startMonitoring(for: beaconRegion)
+        //locationManager!.startRangingBeacons(in: beaconRegion)
+        //locationManager!.startUpdatingLocation()
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options:[.alert, .sound]) { (granted, error) in }
+        
         return true
     }
 
@@ -42,7 +70,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
+extension AppDelegate : CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        guard region is CLBeaconRegion else { return }
+        //manager.startRangingBeacons(in: region as! CLBeaconRegion)
+        //anager.startUpdatingLocation()
+        
+        print("You entered the region")
+        
+        let content = UNMutableNotificationContent()
+        content.title = "OTOT 테스트입니다. "
+        content.body = "바디 테스트 입니다."
+        content.sound = .default()
+        
+        let request = UNNotificationRequest(identifier: "OTOT_Ver_1", content: content, trigger: nil)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        for beacon in beacons {
+            var beaconProximity: String;
+            switch (beacon.proximity) {
+            case CLProximity.unknown:    beaconProximity = "Unknown";
+            case CLProximity.far:        beaconProximity = "Far";
+            case CLProximity.near:       beaconProximity = "Near";
+            case CLProximity.immediate:  beaconProximity = "Immediate";
+            }
+            print("BEACON RANGED: uuid: \(beacon.proximityUUID) major: \(beacon.major)  minor: \(beacon.minor) proximity: \(beaconProximity)")
+        }
+    }
+}

@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import CoreLocation
 class TableViewController: UITableViewController {
     
     @IBOutlet weak var open: UIBarButtonItem!
@@ -16,6 +16,8 @@ class TableViewController: UITableViewController {
     var messageArray : [Message] = [Message]()
     var filterMessages : [Message] = [Message]()
     let searchController = UISearchController(searchResultsController: nil)
+    
+    let locationManager = CLLocationManager()
     
     func filterContentForSearchText(searchText: String, scope: String = "All"){
         filterMessages = messageArray.filter{ message in
@@ -53,6 +55,12 @@ class TableViewController: UITableViewController {
         searchController.searchBar.placeholder = "Search here ..."
         tableView.tableHeaderView = searchController.searchBar
         //tableView.tableFooterView = searchController.searchBar
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        
+        
+        
         
     }
     
@@ -247,4 +255,9 @@ extension TableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
+}
+
+// MARK: CLLocationManagerDelegate
+extension TableViewController: CLLocationManagerDelegate {
+    
 }

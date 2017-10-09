@@ -21,14 +21,12 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
+	<string>NSAllowsArbitraryLoads</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>ForgetMeNot needs to know where you are</string>
+	<string>OTOT App needs to know where you are</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>bluetooth-central</string>
 		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
